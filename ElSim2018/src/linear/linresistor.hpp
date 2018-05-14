@@ -9,15 +9,19 @@
 #define LINRESISTOR_HPP_
 
 #include "../mathmatics/matrix.hpp"
-//#include "../mathmatics/vector.hpp"
+
 
 class LinResistor{
 protected:
+
+	/*Member variables*/
 	int elNumber, nodeNumber_1, nodeNumber_2;
 	double resistance;
 	Matrix conductance;
 
 public:
+
+	/*Constructors*/
 	LinResistor(int);
 	LinResistor(int, int, int);
 	LinResistor(int, double, int, int);
