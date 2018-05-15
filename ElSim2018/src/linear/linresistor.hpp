@@ -11,11 +11,14 @@
 #include "../mathmatics/matrix.hpp"
 
 
+#include "../mathmatics/matrix.hpp"
+
+
 class LinResistor{
 protected:
 
 	/*Member variables*/
-	int elNumber, nodeNumber_1, nodeNumber_2;
+	int elementNumber, nodeNumber_1, nodeNumber_2;
 	double resistance;
 	Matrix conductance;
 
@@ -33,8 +36,10 @@ public:
 
 	Matrix getConductivity(void);
 
-	int getElemNum(void);
+	int getElementNumber(void);
 
+private:
+	void initNodes();
 };
 
 #endif /* LINRESISTOR_HPP_ */

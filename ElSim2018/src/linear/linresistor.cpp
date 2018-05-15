@@ -8,12 +8,12 @@
 #include "linresistor.hpp"
 
 LinResistor::LinResistor(int elNum) : conductance(10){
-	this->elNumber = elNum;
+	this->elementNumber = elNum;
 	this->resistance = 1;
 }
 
 LinResistor::LinResistor(int elNum, int node_1, int node_2)  : conductance(10){
-	this->elNumber = elNum;
+	this->elementNumber = elNum;
 	this->resistance = 1;
 	int maxNode = node_2;
 
@@ -33,15 +33,13 @@ LinResistor::LinResistor(int elNum, int node_1, int node_2)  : conductance(10){
 		this->nodeNumber_2 = node_2;
 	}
 
-	this->conductance = *(new Matrix(maxNode + 1));
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_1, -1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_2, -1.);
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_2, 1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_1, 1.);
+	Matrix buffer = *(new Matrix(maxNode + 1));
+	//this->conductance = *(new Matrix(maxNode + 1));
+	initNodes();
 }
 
 LinResistor::LinResistor(int elNum, double resis, int node_1, int node_2)  : conductance(10){
-	this->elNumber = elNum;
+	this->elementNumber = elNum;
 	this->resistance = 1;
 	int maxNode = node_2;
 	if(node_1 > node_2) {maxNode = node_1;}
@@ -53,11 +51,9 @@ LinResistor::LinResistor(int elNum, double resis, int node_1, int node_2)  : con
 		this->nodeNumber_1 = node_1;
 		this->nodeNumber_2 = node_2;
 	}
-	this->conductance = *(new Matrix(maxNode + 1));
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_1, -1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_2, -1.);
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_2, 1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_1, 1.);
+	Matrix buffer = *(new Matrix(maxNode + 1));
+
+	initNodes();
 	this->resistance = resis;
 	this->conductance /= this->resistance;
 }
@@ -66,6 +62,14 @@ void LinResistor::setResistance(double resis){
 	this->conductance *= this->resistance;
 	this->resistance = resis;
 	this->conductance /= this->resistance;
+}
+
+void LinResistor::initNodes() {
+
+	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_1, -1.);
+	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_2, -1.);
+	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_2, 1.);
+	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_1, 1.);
 }
 
 void LinResistor::setNodes(int node_1, int node_2){
@@ -79,11 +83,9 @@ void LinResistor::setNodes(int node_1, int node_2){
 		this->nodeNumber_1 = node_1;
 		this->nodeNumber_2 = node_2;
 	}
-	this->conductance = *(new Matrix(maxNode + 1));
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_1, -1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_2, -1.);
-	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_2, 1.);
-	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_1, 1.);
+	Matrix buffer = *(new Matrix(maxNode + 1));
+//	this->conductance = *(new Matrix(maxNode + 1));
+	initNodes();
 	this->conductance /= this->resistance;
 }
 
@@ -97,6 +99,6 @@ Matrix LinResistor::getConductivity(void){
 }
 
 
-int LinResistor::getElemNum(){
-	return this->elNumber;
+int LinResistor::getElementNumber(void){
+	return this->elementNumber;
 }
