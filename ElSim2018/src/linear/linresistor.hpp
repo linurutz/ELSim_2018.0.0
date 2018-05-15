@@ -10,10 +10,6 @@
 
 #include "../mathmatics/matrix.hpp"
 
-
-#include "../mathmatics/matrix.hpp"
-
-
 class LinResistor{
 protected:
 

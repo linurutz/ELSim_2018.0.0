@@ -12,9 +12,11 @@ LinearResistor::LinearResistor(int elNum) : conductance(10){ // @suppress("Class
 	this->elementNumber = elNum;
 	this->resistance = 1;
 	//TODO: implement other constructors
-	//TODO: setResistance
+	//TODO: setNodes
+
 
 }
+
 
 void LinearResistor::setResistance(double resis){
 	this->conductance *= this->resistance;
