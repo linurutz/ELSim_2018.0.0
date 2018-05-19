@@ -6,10 +6,6 @@
  */
 
 #include "vector.hpp"
-/*
-Vector::Vector(){
-	Vector(10);
-}*/
 
 Vector::Vector(int len){
 	this->length = len;
@@ -37,7 +33,8 @@ double Vector::getValue(int num){
 	if(this->length > num){
 		return this->vector[num];
 	}
-	else{
+	else
+	{
 		return 0;
 	}
 }
@@ -50,7 +47,8 @@ Vector Vector::operator+(Vector addVect){
 		if(i < this->length){
 			res->setValue(i, this->vector[i] + addVect.getValue(i));
 		}
-		else{
+		else
+		{
 			res->setValue(i, addVect.getValue(i));
 		}
 	}
@@ -64,7 +62,8 @@ Vector Vector::operator+=(Vector addVect){
 			this->vector[i] += addVect.getValue(i);
 		}
 	}
-	else{
+	else
+	{
 		Vector *oldVect = new Vector(this->length);
 		oldVect->vector = this->vector;
 		this->length = maxLength;
@@ -84,7 +83,8 @@ Vector Vector::operator-(Vector subtVect){
 		if(i < this->length){
 			res->setValue(i, this->vector[i] + subtVect.getValue(i));
 		}
-		else{
+		else
+		{
 			res->setValue(i, subtVect.getValue(i));
 		}
 	}
@@ -98,7 +98,8 @@ Vector Vector::operator-=(Vector subtVect){
 			this->vector[i] += subtVect.getValue(i);
 		}
 	}
-	else{
+	else
+	{
 		Vector *oldVect = new Vector(this->length);
 		oldVect->vector = this->vector;
 		this->length = maxLength;
@@ -159,6 +160,3 @@ double Vector::operator*(Vector mulVect){
 	}
 	return res;
 }
-
-
-

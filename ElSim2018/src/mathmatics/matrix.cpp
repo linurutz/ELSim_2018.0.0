@@ -8,10 +8,6 @@
 
 #include "matrix.hpp"
 
-/*Matrix::Matrix(){
-	Matrix(10);
-}*/
-
 Matrix::Matrix(int len){
 	this->length = len;
 	this->matrix = new double*[len];
@@ -26,7 +22,7 @@ Matrix::Matrix(int len){
 }
 
 Matrix::Matrix(Vector[], int){
-
+  //TODO: not yet implemented
 }
 
 void Matrix::setValue(int rowNum, int colNum, double inVal){
@@ -44,7 +40,8 @@ double Matrix::getValue(int rowNum, int colNum){
 	if((rowNum < this->length) && (colNum < this->length)){
 		return this->matrix[rowNum][colNum];
 	}
-	else{
+	else
+	{
 		return 0;
 	}
 }
@@ -54,7 +51,8 @@ Vector Matrix::getRow(int rowNum){
 		Vector* res = new Vector(this->matrix[rowNum], this->length);
 		return *res;
 	}
-	else{
+	else
+	{
 		return *(new Vector(this->length));
 	}
 }
@@ -84,7 +82,8 @@ Matrix Matrix::operator+=(Matrix addMat){
 			}
 		}
 	}
-	else{
+	else
+	{
 		Matrix *oldMat = new Matrix(this->length);
 		oldMat->matrix = this->matrix;
 		this->length = maxLength;
@@ -128,7 +127,8 @@ Matrix Matrix::operator-=(Matrix subMat){
 			}
 		}
 	}
-	else{
+	else
+	{
 		Matrix *oldMat = new Matrix(this->length);
 		oldMat->matrix = this->matrix;
 		this->length = maxLength;
