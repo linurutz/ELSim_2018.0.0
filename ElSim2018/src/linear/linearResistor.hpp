@@ -31,7 +31,8 @@ public:
 	int getElementNumber(void) ;
 	void setConductance(Matrix);
 	double getCurrent(Vector);
-
+	void setNodes(int, int);
+	void initNodes(void);
 };
 
 
