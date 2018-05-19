@@ -10,8 +10,8 @@
 
 class LinVoltage{
 protected:
-	int elNum, refNode, potNode;
-	double voltag;
+	int elementNumber, referenceNode, potentialNode;
+	double voltages;
 
 public:
 	LinVoltage(int);

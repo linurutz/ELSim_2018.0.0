@@ -14,9 +14,9 @@
 using namespace std;
 
 int main() {
-	double volta[] = {0, 12, 8};
+	double voltages[] = {0, 12, 8};
 
-	Vector voltaVect = *(new Vector(volta, 3));
+	Vector voltagesVect = *(new Vector(voltages, 3));
 
 	LinearResistor R1 = *(new LinearResistor(1, 100., 1, 2));
 
@@ -34,7 +34,7 @@ int main() {
 		cout << "\n";
 	}
 
-	cout << R1.getCurrent(voltaVect) << "\n\n";
+	cout << R1.getCurrent(voltagesVect) << "\n\n";
 
 	return 0;
 }

@@ -8,69 +8,69 @@
 #include "linvoltage.hpp"
 
 LinVoltage::LinVoltage(int elNm){
-	this->elNum = elNm;
-	this->voltag = 0.;
-	this->refNode = 0;
-	this->potNode = 1;
+	this->elementNumber = elNm;
+	this->voltages = 0.;
+	this->referenceNode = 0;
+	this->potentialNode = 1;
 }
 
 LinVoltage::LinVoltage(int elNm, int rNode, int pNode){
-	this->elNum = elNm;
-	this->voltag = 0.;
-	this->refNode = rNode;
-	this->potNode = pNode;
+	this->elementNumber = elNm;
+	this->voltages = 0.;
+	this->referenceNode = rNode;
+	this->potentialNode = pNode;
 }
 
 LinVoltage::LinVoltage(int elNm, double voltg, int rNode, int pNode){
-	this->elNum = elNm;
-	this->voltag = voltg;
-	this->refNode = rNode;
-	this->potNode = pNode;
+	this->elementNumber = elNm;
+	this->voltages = voltg;
+	this->referenceNode = rNode;
+	this->potentialNode = pNode;
 }
 
 void LinVoltage::setRefNode(int nNode){
-	this->refNode = nNode;
+	this->referenceNode = nNode;
 }
 
 void LinVoltage::setPotNode(int nNode){
-	this->potNode = nNode;
+	this->potentialNode = nNode;
 }
 
 void LinVoltage::setVoltage(double voltg){
-	this->voltag = voltg;
+	this->voltages = voltg;
 }
 
 double LinVoltage::getVoltage(){
-	return this->voltag;
+	return this->voltages;
 }
 
 int LinVoltage::getElemNum(){
-	return this->elNum;
+	return this->elementNumber;
 }
 
 int LinVoltage::getRefNode(){
-	return this->refNode;
+	return this->referenceNode;
 }
 
 int LinVoltage::getPotNode(){
-	return this->potNode;
+	return this->potentialNode;
 }
 
 int LinVoltage::getMaxNode(){
-	if(this->potNode > this->refNode){
-		return this->potNode;
+	if(this->potentialNode > this->referenceNode){
+		return this->potentialNode;
 	}
 	else{
-		return this->refNode;
+		return this->referenceNode;
 	}
 }
 
 int LinVoltage::getMinNode(){
-	if(this->potNode > this->refNode){
-		return this->refNode;
+	if(this->potentialNode > this->referenceNode){
+		return this->referenceNode;
 	}
 	else{
-		return this->potNode;
+		return this->potentialNode;
 	}
 }
 
