@@ -9,7 +9,7 @@
 #include <iostream>
 #include "mathmatics/vector.hpp"
 #include "mathmatics/matrix.hpp"
-#include "linear/linresistor.hpp"
+#include "linear/linearResistor.hpp"
 
 using namespace std;
 
@@ -18,11 +18,11 @@ int main() {
 
 	Vector voltaVect = *(new Vector(volta, 3));
 
-	LinResistor R1 = *(new LinResistor(1, 100., 1, 2));
+	LinearResistor R1 = *(new LinearResistor(1, 100., 1, 2));
 
 	R1.setResistance(220);
 
-	Matrix mat = R1.getConductivity();
+	Matrix mat = R1.getConductance;
 
 	cout << mat.getLength() << "\n\n";
 
