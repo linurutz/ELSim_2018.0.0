@@ -11,7 +11,7 @@
 LinearResistor::LinearResistor(int elNum) : conductance(10){ // @suppress("Class members should be properly initialized")
 	this->elementNumber = elNum;
 	this->resistance = 1;
-	//TODO: implement other constructors
+
 }
 
 LinearResistor::LinearResistor(int elNum, int node_1, int node_2)  : conductance(10){
