@@ -10,6 +10,7 @@
 #include "mathmatics/vector.hpp"
 #include "mathmatics/matrix.hpp"
 #include "linear/linresistor.cpp"
+#include "linear/linnetwork.cpp"
 
 using namespace std;
 
