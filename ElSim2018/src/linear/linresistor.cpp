@@ -33,8 +33,8 @@ LinResistor::LinResistor(int elNum, int node_1, int node_2)  : conductance(10){
 		this->nodeNumber_2 = node_2;
 	}
 
-	Matrix buffer = *(new Matrix(maxNode + 1));
-	this->conductance = buffer;
+	Matrix buff = *(new Matrix(maxNode + 1));
+	this->conductance = buff;
 	initNodes();
 }
 
@@ -51,8 +51,8 @@ LinResistor::LinResistor(int elNum, double resis, int node_1, int node_2)  : con
 		this->nodeNumber_1 = node_1;
 		this->nodeNumber_2 = node_2;
 	}
-	Matrix buffer = *(new Matrix(maxNode + 1));
-	this->conductance = buffer;
+	Matrix buff = *(new Matrix(maxNode + 1));
+	this->conductance = buff;
 	initNodes();
 	this->resistance = resis;
 	this->conductance /= this->resistance;
@@ -83,8 +83,8 @@ void LinResistor::setNodes(int node_1, int node_2){
 		this->nodeNumber_1 = node_1;
 		this->nodeNumber_2 = node_2;
 	}
-	Matrix buffer = *(new Matrix(maxNode + 1));
-	this->conductance = buffer;
+	Matrix buff = *(new Matrix(maxNode + 1));
+	this->conductance = buff;
 	initNodes();
 	this->conductance /= this->resistance;
 }
