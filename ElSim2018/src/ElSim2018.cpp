@@ -24,6 +24,13 @@ int main() {
 
 	Matrix mat = R1.getConductivity;
 
+	LinNetwork network = *(new LinNetwork);
+	network.addVoltage(new LinVoltage(0, 12., 0, 1));
+	network.addVoltage(new LinVoltage(1, 5., 0, 2));
+	network.addResistor(&R1);
+
+	network.solveSystem();
+
 	cout << mat.getLength() << "\n\n";
 
 	for(int i = 0; i < 7; i++){
