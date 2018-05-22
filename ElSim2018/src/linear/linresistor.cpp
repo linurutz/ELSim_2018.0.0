@@ -16,15 +16,23 @@ LinResistor::LinResistor(int elNum, int node_1, int node_2)  : conductance(10){
 	this->elNumber = elNum;
 	this->resistance = 1;
 	int maxNode = node_2;
-	if(node_1 > node_2) {maxNode = node_1;}
+
+	if(node_1 > node_2)
+	{
+		maxNode = node_1;
+	}
+
 	if(node_2 == node_1){
 		this->nodeNumber_2 = node_1;
 		this->nodeNumber_1 = 0;
 	}
-	else{
+
+	else
+	{
 		this->nodeNumber_1 = node_1;
 		this->nodeNumber_2 = node_2;
 	}
+
 	this->conductance = *(new Matrix(maxNode + 1));
 	this->conductance.setValue(this->nodeNumber_1, this->nodeNumber_1, -1.);
 	this->conductance.setValue(this->nodeNumber_2, this->nodeNumber_2, -1.);
