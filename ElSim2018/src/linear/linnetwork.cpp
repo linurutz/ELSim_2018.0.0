@@ -114,6 +114,13 @@ Vector LinNetwork::getNodalVoltages(){
 }
 
 Matrix LinNetwork::getConductance(){
+	Resistors* runResist = this->resistors;
+	this->conductance = runResist->resistorEl->getConductivity();
+	runResist = runResist->next;
+	while(runResist != 0){
+		this->conductance += runResist->resistorEl->getConductivity();
+		runResist = runResist->next;
+	}
 	return this->conductance;
 }
 

@@ -10,6 +10,7 @@
 #include "mathmatics/vector.hpp"
 #include "mathmatics/matrix.hpp"
 #include "linear/linresistor.hpp"
+#include "linear/linnetwork.hpp"
 
 using namespace std;
 
@@ -19,15 +20,20 @@ int main() {
 	Vector voltaVect = *(new Vector(volta, 3));
 
 	LinResistor R1 = *(new LinResistor(1, 100., 1, 2));
+	LinResistor R2 = *(new LinResistor(2, 100., 2, 4));
 
 	R1.setResistance(220);
+	R2.setResistance(180);
 
-	Matrix mat = R1.getConductivity();
+	//Matrix mat = R1.getConductivity();
 
 	LinNetwork network = *(new LinNetwork);
 	network.addVoltage(new LinVoltage(0, 12., 0, 1));
 	network.addVoltage(new LinVoltage(1, 5., 0, 2));
 	network.addResistor(&R1);
+	network.addResistor(&R2);
+
+	Matrix mat = network.getConductance();
 
 	network.solveSystem();
 
